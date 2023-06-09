@@ -1,0 +1,30 @@
+@inject contentStorage content
+@using MudBlazor
+@inject Constants constants
+
+
+<div class="text-sm text-gray-400 py-6">
+    <MudContainer>
+        <MudGrid Justify="Justify.SpaceBetween">
+            <MudItem Class="p-3">
+                © @constants.currentYear @c.siteBase.projectName All rights reserved.
+            </MudItem>
+            <MudItem>
+                @foreach (var linkPair in c.subfooter.links) {
+                    <MudLink Href=@linkPair[1].ToString() Class="p-3">@linkPair[0]</MudLink>
+                }
+            </MudItem>
+        </MudGrid>
+    </MudContainer>
+</div>    
+
+
+@code {
+    private dynamic c = default!;
+
+    protected override void OnInitialized()
+    {
+        c = content.files["fundamental"];
+    }
+}
+

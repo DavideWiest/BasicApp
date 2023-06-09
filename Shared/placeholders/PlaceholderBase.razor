@@ -1,0 +1,20 @@
+
+<div class="m-3">
+    <div class="rounded-2xl flex justify-center items-center w-full h-full @padding" style="background-color: @bgColor;">
+        <p class="text-xl" style="color: @textColor;">
+            @title
+        </p>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string title { get; set; } = "Responsible Party"; 
+    [Parameter]
+    public string bgColor { get; set; } = "#081014";
+    [Parameter]
+    public string textColor { get; set; } = "#f5f4f0";
+    [Parameter]
+    public string padding { get; set; } = "p-6";
+
+}

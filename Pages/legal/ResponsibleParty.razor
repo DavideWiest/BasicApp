@@ -1,0 +1,32 @@
+@inject contentStorage content
+
+<div class="credentials m-4">
+    <ul class="flex justify-center flex-col items-center">
+        @if (showTitle)
+        {
+            <li id="credential-items" class="roboto">
+                @title
+            </li>
+        }
+        @foreach (var dataPiece in c.responsibleParty)
+        {
+            <li id="credential-items" class="code">
+                @dataPiece.Value
+            </li>
+        }
+    </ul>
+</div>
+
+
+@code {
+    [Parameter]
+    public string title { get; set; } = "Responsible Party";
+    [Parameter]
+    public bool showTitle { get; set; } = true;
+    private dynamic c = default!;
+
+    protected override void OnInitialized()
+    {
+        c = content.files["credentials"];
+    }
+}

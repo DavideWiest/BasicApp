@@ -1,0 +1,39 @@
+@page "/"
+@inject contentStorage content
+@using MudBlazor
+@using basicApp.Shared
+@inject Constants constants
+
+<PageTitle>basicApp</PageTitle>
+
+<HeroSection title="basicApp" description="Description lorem ipsum dolor sit amet consectetur adipisici"
+    imageLoc="/static/img/sample.png" actionComponent="@heroActionComponent" />
+
+
+
+@for (int i = 1; i < 6; i++)
+{
+    <PlaceholderBase title=@($"item {i}") />
+}
+
+@for (int i = 6; i < 11; i++)
+{
+    <PlaceholderImage />
+}
+
+
+@code {
+    private RenderFragment heroActionComponent = default!;
+
+    protected override void OnInitialized()
+    {
+        dynamic landingPage = content.files["main"];
+
+        heroActionComponent = builder =>
+        {
+            builder.OpenComponent(0, typeof(MainPageHeroActionComponent));
+            builder.CloseComponent();
+        };
+    }
+}
+
