@@ -4,12 +4,14 @@
 This project exists primarily to provide developers looking to start a new Blazor project with a useful and exemplary starting point. 
 
 ## Why
+## Why
 
 This project was created to in an effort to make new Blazor Apps faster and simpler to setup. 
 New projects often have some boilerplate, even with Blazor. Furthermore, I didn't want a project to inlcude bootstrap automatically. (I opted for tailwindcss instead.)
 
 The basicApp repository is a framework to get started with the actual development phase earlier, and avoid repetition.
 
+## Getting Started
 ## Getting Started
 
 1. Clone this repository
@@ -37,9 +39,11 @@ Options to generate them:
 
 
 ## Open an Issue
+## Open an Issue
 
 [Open an issue](https://github.com/DavideWiest/basicApp/issues)
 
+## Conventions
 ## Conventions
 
 - `tw...` Attributes refer to usage in or with tailwind-classes
