@@ -20,7 +20,7 @@ The basicApp repository is a framework to get started with the actual developmen
 With Visual Studio Code you will need to install the C# extensions:
 
 3. Install the required packages as documented in `basicApp.csproj`
-Use `dotnet restore` or install them manually
+Use `dotnet restore` or install them manually (e.g. `dotnet add package MudBlazor`)
 
 4. Replace all text and filename occurences of `basicApp` with your actual projectname
 
