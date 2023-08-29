@@ -1,6 +1,6 @@
-﻿namespace basicApp.Modules;
+﻿namespace Modules.Storage;
 
-public static class FundamentalStorage
+public static class CredentialStorage
 {
 
 }

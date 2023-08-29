@@ -1,12 +1,8 @@
 namespace Modules;
+
 using Newtonsoft.Json;
 using Modules.Storage;
 
-
-public static class CredentialStorage
-{
-
-}
 
 
 public class FileContentStorage
