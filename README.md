@@ -3,7 +3,7 @@
 
 This project exists primarily to provide developers looking to start a new Blazor project with a useful and exemplary starting point. 
 
-## Why
+## Motivation
 
 This project was created to in an effort to make new Blazor Apps faster and simpler to setup. 
 New projects often have some boilerplate, even with Blazor. Furthermore, I didn't want a project to inlcude bootstrap automatically. (I opted for tailwindcss instead.)
