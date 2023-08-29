@@ -1,10 +1,19 @@
+namespace Modules;
 using Newtonsoft.Json;
+using Modules.Storage;
 
-public class contentStorage
+
+public static class CredentialStorage
+{
+
+}
+
+
+public class FileContentStorage
 {
     public readonly Dictionary<string, dynamic> files = new();
 
-    public contentStorage()
+    public FileContentStorage()
     {
         ReadAllJsonFiles(Constants.contentDir);
     }

@@ -8,21 +8,21 @@ This project exists primarily to provide developers looking to start a new Blazo
 This project was created to in an effort to make new Blazor Apps faster and simpler to setup. 
 New projects often have some boilerplate, even with Blazor. Furthermore, I didn't want a project to inlcude bootstrap automatically. (I opted for tailwindcss instead.)
 
-The basicApp repository is a framework to get started with the actual development phase earlier, and avoid repetition.
+The BasicApp repository is a framework to get started with the actual development phase earlier, and avoid repetition.
 
 ## Getting Started
 
 1. Clone this repository
-`git clone https://github.com/CodingWithDavid/basicApp`
-`cd basicApp`
+`git clone https://github.com/CodingWithDavid/BasicApp`
+`cd BasicApp`
 
 2. Open in Visual Studio or Visual Studio Code
 With Visual Studio Code you will need to install the C# extensions:
 
-3. Install the required packages as documented in `basicApp.csproj`
+3. Install the required packages as documented in `BasicApp.csproj`
 Use `dotnet restore` or install them manually (e.g. `dotnet add package MudBlazor`)
 
-4. Replace all text and filename occurences of `basicApp` with your actual projectname
+4. Replace all text and filename occurences of `BasicApp` with your actual projectname
 
 5. Customize project-specific-colors in `static/js/twConfig.js`
 
@@ -38,7 +38,7 @@ Options to generate them:
 
 ## Open an Issue
 
-[Open an issue](https://github.com/DavideWiest/basicApp/issues)
+[Open an issue](https://github.com/DavideWiest/BasicApp/issues)
 
 ## Conventions
 

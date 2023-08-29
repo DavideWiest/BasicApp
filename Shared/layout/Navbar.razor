@@ -1,5 +1,7 @@
-@inject contentStorage content
+@namespace Shared.Layout
+
 @using MudBlazor
+@inject ContentStorage content
 
 <nav id="nav" class="sticky top-0 z-10 z-50">
     @if (c.navbar.specialAnnouncement.ToString() != "") {
@@ -47,7 +49,7 @@
 
     protected override void OnInitialized()
     {
-        c = content.files["fundamental"];
+        c = content.fundamental;
     }
 }
 

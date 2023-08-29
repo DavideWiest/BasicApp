@@ -1,0 +1,24 @@
+﻿@namespace Pages.Fundamental
+
+@page "/ignorethis"
+@using MudBlazor
+@using Shared
+@*@using Modules*@
+@inject Constants constants
+@inject ContentStorage content
+
+<h1></h1>
+
+<div>
+</div>
+
+
+
+@code {
+
+    protected override void OnInitialized()
+    {
+        dynamic pagecontent = content.main;
+
+    }
+}

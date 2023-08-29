@@ -4,7 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>aspnet-basicApp-591f3521-fb41-49ec-b2e0-efa4e89d49d7</UserSecretsId>
+    <UserSecretsId>aspnet-BasicApp-591f3521-fb41-49ec-b2e0-efa4e89d49d7</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,6 +15,10 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5" />
     <PackageReference Include="MudBlazor" Version="6.3.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Shared\Sections\" />
   </ItemGroup>
 
 </Project>

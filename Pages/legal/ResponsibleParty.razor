@@ -1,4 +1,6 @@
-@inject contentStorage content
+@namespace Pages.Legal
+
+@inject ContentStorage content
 
 <div class="credentials m-4">
     <ul class="flex justify-center flex-col items-center">
@@ -27,6 +29,6 @@
 
     protected override void OnInitialized()
     {
-        c = content.files["credentials"];
+        c = content.credentials;
     }
 }

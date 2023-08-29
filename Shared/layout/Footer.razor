@@ -1,4 +1,6 @@
-@inject contentStorage content
+@namespace Shared.Layout
+
+@inject ContentStorage content
 
 
 <div class="flex justify-center">
@@ -27,7 +29,7 @@
 
     protected override void OnInitialized()
     {
-        c = content.files["fundamental"];
+        c = content.fundamental;
     }
 }
 

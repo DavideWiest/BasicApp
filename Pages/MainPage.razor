@@ -1,22 +1,27 @@
 @page "/"
-@inject contentStorage content
+@namespace Pages
+
 @using MudBlazor
-@using basicApp.Shared
+@using BasicApp.Shared
+@using Shared.Layout
+@using Shared.Placeholders
+
+@inject ContentStorage content
 @inject Constants constants
 
-<PageTitle>basicApp</PageTitle>
+<PageTitle>BasicApp</PageTitle>
 
-<HeroSection title="basicApp" description="Description lorem ipsum dolor sit amet consectetur adipisici"
+<HeroSection title="BasicApp" description="Description lorem ipsum dolor sit amet consectetur adipisici"
     imageLoc="/static/img/sample.png" actionComponent="@heroActionComponent" />
 
 
 
-@for (int i = 1; i < 6; i++)
+@for (int i = 1; i < 4; i++)
 {
     <PlaceholderBase title=@($"item {i}") />
 }
 
-@for (int i = 6; i < 11; i++)
+@for (int i = 6; i < 8; i++)
 {
     <PlaceholderImage />
 }
@@ -27,7 +32,7 @@
 
     protected override void OnInitialized()
     {
-        dynamic landingPage = content.files["main"];
+        dynamic landingPage = content.main;
 
         heroActionComponent = builder =>
         {

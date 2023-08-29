@@ -1,5 +1,7 @@
-@inject contentStorage content
+@namespace Shared.Layout
+
 @using MudBlazor
+@inject ContentStorage content
 @inject Constants constants
 
 
@@ -24,7 +26,7 @@
 
     protected override void OnInitialized()
     {
-        c = content.files["fundamental"];
+        c = content.fundamental;
     }
 }
 

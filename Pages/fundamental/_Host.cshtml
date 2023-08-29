@@ -1,7 +1,10 @@
 ﻿@page "/"
+@namespace Pages.Fundamental
+
 @using Microsoft.AspNetCore.Components.Web
-@namespace basicApp.Pages
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@using BasicApp.Shared.Sections
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +30,7 @@
 
     <script src="/static/js/twConfig.js"></script>t
 
-
+    <MetaTags />
 
 </head>
 
@@ -46,6 +49,7 @@
     </div>
 
     <script src="_framework/blazor.server.js"></script>
+    <script src="_content/MudBlazor/MudBlazor.min.js"></script>
 
     <script src="/static/js/baseDomManagement.js"></script>
 </body>
