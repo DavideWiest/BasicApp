@@ -6,14 +6,14 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.EntityFrameworkCore;
 
+using MudBlazor;
+using MudBlazor.Services;
+
 using Areas.Identity;
 using Data;
 using Data.Storage;
 using Microsoft.Extensions.FileProviders;
-
-using MudBlazor;
-using MudBlazor.Services;
-
+using Modules.Db;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -67,14 +67,13 @@ builder.Services.AddSingleton<MainStorage>();
 
 
 
-
 var app = builder.Build();
 
-//#if DEBUG
-//Postgres.ConnectionString = builder.Configuration["Database:ConnectionStringTesting"]!;
-//#else
-//Postgres.ConnectionString = builder.Configuration["Database:ConnectionStringProduction"]!;
-//#endif
+#if DEBUG
+DbManager.ConStr = builder.Configuration["Database:ConnectionStringTesting"]!;
+#else
+DbManager.ConStr = builder.Configuration["Database:ConnectionStringProduction"]!;
+#endif
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
