@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.ApplicationModels;
 
-// ...
+using Data.Storage;
 
 public class RoutePrefixConvention : IApplicationModelConvention
 {
@@ -15,7 +15,7 @@ public class RoutePrefixConvention : IApplicationModelConvention
     {
         foreach (var controller in application.Controllers)
         {
-            bool? condition = controller.ControllerType.Namespace?.StartsWith(Constants.projectDir + ".api.controllers");
+            bool? condition = controller.ControllerType.Namespace?.StartsWith(Constants.ProjectDir + ".api.controllers");
             if (condition == true)
             {
                 foreach (var selector in controller.Selectors)

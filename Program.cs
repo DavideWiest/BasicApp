@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.EntityFrameworkCore;
 
-using BasicApp.Areas.Identity;
-using BasicApp.Data;
+using Areas.Identity;
+using Data;
+using Data.Storage;
 using Microsoft.Extensions.FileProviders;
 
 using MudBlazor;
@@ -61,7 +62,8 @@ builder.Services.AddControllersWithViews(options =>
 //builder.Services.AddSingleton<WeatherForecastService>();
 
 builder.Services.AddSingleton<Constants>();
-builder.Services.AddSingleton<ContentStorage>();
+builder.Services.AddSingleton<FundamentalStorage>();
+builder.Services.AddSingleton<MainStorage>();
 
 
 

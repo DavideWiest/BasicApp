@@ -1,7 +1,7 @@
 namespace Modules;
 
 using Newtonsoft.Json;
-using Modules.Storage;
+using Data.Storage;
 
 
 
@@ -11,7 +11,7 @@ public class FileContentStorage
 
     public FileContentStorage()
     {
-        ReadAllJsonFiles(Constants.contentDir);
+        ReadAllJsonFiles(Constants.ContentDir);
     }
 
     public void ReadAllJsonFiles(string directoryPath)

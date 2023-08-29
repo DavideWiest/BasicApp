@@ -67,6 +67,17 @@ function adjustHeightWithMargin() {
     }
 }
 
+function BlazorScrollToId(id) {
+    const element = document.getElementById(id);
+    if (element instanceof HTMLElement) {
+        element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest"
+        });
+    }
+}
+
 window.onbeforeunload = function (e) {
     localStorage.setItem('scrollpos', window.scrollY);
     localStorage.setItem('fromPage', window.location.href);

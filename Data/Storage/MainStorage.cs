@@ -1,4 +1,4 @@
-﻿namespace Modules.Storage;
+﻿namespace Data.Storage;
 
 public class MainStorage
 {

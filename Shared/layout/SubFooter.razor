@@ -1,7 +1,9 @@
 @namespace Shared.Layout
 
 @using MudBlazor
-@inject ContentStorage content
+@using Data.Storage
+
+@inject FundamentalStorage c
 @inject Constants constants
 
 
@@ -9,11 +11,11 @@
     <MudContainer>
         <MudGrid Justify="Justify.SpaceBetween">
             <MudItem Class="p-3">
-                © @constants.currentYear @c.siteBase.projectName All rights reserved.
+                © @constants.CurrentYear @Constants.ProjectName All rights reserved.
             </MudItem>
             <MudItem>
-                @foreach (var linkPair in c.subfooter.links) {
-                    <MudLink Href=@linkPair[1].ToString() Class="p-3">@linkPair[0]</MudLink>
+                @foreach (var linkPair in c.SubfooterData.Links) {
+                    <MudLink Href=@linkPair.Url Class="p-3">@linkPair.Name</MudLink>
                 }
             </MudItem>
         </MudGrid>
@@ -22,11 +24,10 @@
 
 
 @code {
-    private dynamic c = default!;
 
     protected override void OnInitialized()
     {
-        c = content.fundamental;
+        
     }
 }
 

@@ -3,9 +3,10 @@
 @page "/ignorethis"
 @using MudBlazor
 @using Shared
-@*@using Modules*@
+@using Modules
+@using Data.Storage
 @inject Constants constants
-@inject ContentStorage content
+@inject MainStorage mainstorage
 
 <h1></h1>
 
@@ -18,7 +19,6 @@
 
     protected override void OnInitialized()
     {
-        dynamic pagecontent = content.main;
 
     }
 }

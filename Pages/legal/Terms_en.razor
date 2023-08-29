@@ -1,7 +1,7 @@
 @page "/terms-of-service"
-@namespace Pages
+@namespace Pages.Legal
 
-@inject ContentStorage content
+@using Shared.Legal
 
 <PageTitle>Terms of Service</PageTitle>
 
@@ -15,7 +15,7 @@
             Terms of Service
         </h1>
         
-        <ResponsibleParty showTitle=false />
+        <ResponsiblePartyView showTitle=false />
 
         <h3>General</h3>
 

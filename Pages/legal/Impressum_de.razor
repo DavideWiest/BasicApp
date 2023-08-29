@@ -1,6 +1,6 @@
 @namespace Pages.Legal
 
-@inject ContentStorage content
+@using Shared.Legal
 
 <PageTitle>Impressum & Datenschutzerklärung</PageTitle>
 
@@ -12,7 +12,7 @@
             Impressum
         </h1>
         
-        <ResponsibleParty title="Verantwortlicher" />
+        <ResponsiblePartyView title="Verantwortlicher" />
 
         <div id='impressum'>
             <p>Angaben gemäß § 5 TMG</p>
@@ -60,23 +60,9 @@
     <h1 id="section-header" class="text-3xl text-b600 intertight mt-4">
         Datenschutzerklärung
     </h1>
-    
-    <div class="credentials m-4">
-        <ul class="flex justify-center flex-col items-center">
-            <li id="credential-items" class="roboto">
-                Verantwortlicher
-            </li>
-            <li id="credential-items" class="code">
-                {{ c.credentials.name }}
-            </li>
-            <li id="credential-items" class="code">
-                {{ c.credentials.email }}
-            </li>
-            <li id="credential-item" class="code">
-                {{ c.credentials.phone }}
-            </li>
-        </ul>
-    </div>
+
+        
+    <ResponsiblePartyView title="Verantwortlicher" />
 
     <h2 id="m14">Einleitung</h2>
     <p>Mit der folgenden Datenschutzerklärung möchten wir Sie darüber aufklären, welche Arten Ihrer personenbezogenen Daten

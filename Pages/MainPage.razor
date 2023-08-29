@@ -2,18 +2,21 @@
 @namespace Pages
 
 @using MudBlazor
-@using BasicApp.Shared
 @using Shared.Layout
 @using Shared.Placeholders
+@using Shared.BaseUI.Buttons
 
-@inject ContentStorage content
+@using Data.Storage
 @inject Constants constants
 
 <PageTitle>BasicApp</PageTitle>
 
 <HeroSection title="BasicApp" description="Description lorem ipsum dolor sit amet consectetur adipisici"
-    imageLoc="/static/img/sample.png" actionComponent="@heroActionComponent" />
+             imageLoc="/static/img/sample.png" actionText="Visit Github Repo" actionLink="https://github.com/DavideWiest/BasicApp">
+    </HeroSection>
 
+
+<MudBlazorSwitchTest/>
 
 
 @for (int i = 1; i < 4; i++)
@@ -32,13 +35,8 @@
 
     protected override void OnInitialized()
     {
-        dynamic landingPage = content.main;
 
-        heroActionComponent = builder =>
-        {
-            builder.OpenComponent(0, typeof(MainPageHeroActionComponent));
-            builder.CloseComponent();
-        };
+
     }
 }
 

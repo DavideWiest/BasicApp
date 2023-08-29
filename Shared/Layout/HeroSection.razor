@@ -10,23 +10,28 @@
                 <p class="text-lg mb-4">
                     @description
                 </p>
-                @actionComponent
+                <PrimaryLinkBtn link=@actionLink t=@actionText />
             </div>
         </div>
         <div class="w-full h-full bg-cover bg-contain bg-no-repeat bg-center md:m-3 rounded-3xl shadow-xl" style="background-image: url('@imageLoc');">
-            
+            @ChildContent
         </div>
     </div>
 </div>
 
 
+
 @code {
     [Parameter]
-    public RenderFragment actionComponent { get; set; } = default!;
+    public RenderFragment ChildContent { get; set; } = default!;
     [Parameter]
     public string title { get; set; } = default!;
     [Parameter]
     public string description { get; set; } = default!;
     [Parameter]
     public string imageLoc { get; set; } = default!;
+    [Parameter]
+    public string actionText { get; set; } = default!;
+    [Parameter]
+    public string actionLink { get; set; } = default!;
 }

@@ -1,7 +1,8 @@
 @namespace Pages.Legal
 
 @page "/impressum-privacy-policy"
-@inject ContentStorage content
+
+@using Shared.Legal
 
 <PageTitle>Impressum & Privacy Policy</PageTitle>
 
@@ -12,7 +13,7 @@
             Impressum
         </h1>
         
-        <ResponsibleParty />
+        <ResponsiblePartyView />
 
         <div id='impressum'>
             <p>Information according to § 5 TMG</p>
@@ -60,23 +61,9 @@
     <h1 id="section-header" class="text-3xl text-b600 intertight mt-4">
         Privacy Policy
     </h1>
+
+        <ResponsiblePartyView />
     
-    <div class="credentials m-4">
-        <ul class="flex justify-center flex-col items-center">
-            <li id="credential-items" class="roboto">
-                Responsible Party
-            </li>
-            <li id="credential-items" class="code">
-                {{ c.credentials.name }}
-            </li>
-            <li id="credential-items" class="code">
-                {{ c.credentials.email }}
-            </li>
-            <li id="credential-item" class="code">
-                {{ c.credentials.phone }}
-            </li>
-        </ul>
-    </div>
     <h2 id="m14">Introduction</h2>
     <p>With the following data protection declaration, we would like to inform you about the types of your personal data
         (hereinafter also referred to as "data") we process for which purposes and to what extent. The

@@ -1,4 +1,8 @@
-﻿<CascadingAuthenticationState>
+﻿@namespace BasicApp
+
+@using Shared
+
+<CascadingAuthenticationState>
     <Router AppAssembly="@typeof(App).Assembly">
         <Found Context="routeData">
             <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(BaseLayout)" />
