@@ -19,6 +19,6 @@ public class LoggingMiddleware : IMiddleware
         var requesterIp = context.Connection.RemoteIpAddress;
         var timeTaken = stopwatch.Elapsed.TotalMilliseconds;
 
-        Log.Information("Request from {Ip}: {Url} took {Time} ms", requesterIp, requestUrl, timeTaken);
+        Log.Data("Request Ip={Ip} Url={Url} Time={Time:000.000}", requesterIp.ToString() ?? "::::", requestUrl, timeTaken);
     }
 }

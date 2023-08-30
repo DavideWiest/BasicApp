@@ -15,6 +15,10 @@ public static class Log
         .Filter.ByIncludingOnly(evt => evt.Level == LogEventLevel.Error || evt.Level == LogEventLevel.Fatal)
         .WriteTo.File("Logs/error.txt", rollingInterval: RollingInterval.Day)
     )
+    .WriteTo.Logger(lc => lc
+        .Filter.ByIncludingOnly(evt => evt.Properties.ContainsKey("Channel") && evt.Properties["Channel"].ToString() == "Data")
+        .WriteTo.File("Logs/data.txt", rollingInterval: RollingInterval.Day)
+    )
     .WriteTo.Console()
     .WriteTo.File("Logs/log.txt", rollingInterval: RollingInterval.Day)
     .WriteTo.Sink(new LoggingEventHandler())
@@ -48,5 +52,11 @@ public static class Log
     public static void Fatal(string messageTemplate, params object[] propertyValues)
     {
         SLogger.Fatal(messageTemplate, propertyValues);
+    }
+
+    public static void Data(string messageTemplate, params object[] propertyValues)
+    {
+        var properties = new Dictionary<string, object> { ["Channel"] = "Data" };
+        SLogger.Information(messageTemplate, propertyValues.Concat(new object[] { properties }).ToArray());
     }
 }
