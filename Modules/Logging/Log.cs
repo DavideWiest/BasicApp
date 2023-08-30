@@ -1,4 +1,4 @@
-﻿namespace Modules.Logging;
+﻿namespace basicApp.Modules.Logging;
 
 using Serilog;
 using Serilog.Events;
@@ -23,6 +23,8 @@ public static class Log
     .WriteTo.File("Logs/log.txt", rollingInterval: RollingInterval.Day)
     .WriteTo.Sink(new LoggingEventHandler())
     .CreateLogger();
+
+
 
     public static void Verbose(string messageTemplate, params object[] propertyValues)
     {

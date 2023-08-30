@@ -1,5 +1,5 @@
 ﻿
-namespace Modules.Db;
+namespace basicApp.Modules.Db;
 
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;

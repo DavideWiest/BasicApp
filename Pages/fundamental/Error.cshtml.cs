@@ -1,4 +1,4 @@
-﻿namespace Pages.Fundamental;
+﻿namespace basicApp.Pages.Fundamental;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;

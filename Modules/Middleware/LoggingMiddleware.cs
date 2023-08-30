@@ -1,9 +1,9 @@
-﻿namespace Modules.Middleware;
+﻿namespace basicApp.Modules.Middleware;
 
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
-using Modules.Logging;
+using basicApp.Modules.Logging;
 
 public class LoggingMiddleware : IMiddleware
 {

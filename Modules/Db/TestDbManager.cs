@@ -1,6 +1,6 @@
-﻿namespace Modules.Db;
+﻿namespace basicApp.Modules.Db;
 
-using Data.Db;
+using basicApp.Data.Db;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 

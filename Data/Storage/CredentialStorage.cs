@@ -1,4 +1,4 @@
-﻿namespace Data.Storage;
+﻿namespace basicApp.Data.Storage;
 
 public static class CredentialStorage
 {

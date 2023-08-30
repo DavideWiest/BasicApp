@@ -12,11 +12,11 @@ using Areas.Identity;
 using MudBlazor;
 using MudBlazor.Services;
 
-using Modules.Logging;
-using Modules.Middleware;
-using Modules.Db;
-using Data;
-using Data.Storage;
+using basicApp.Modules.Logging;
+using basicApp.Modules.Middleware;
+using basicApp.Modules.Db;
+using basicApp.Data;
+using basicApp.Data.Storage;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("config/appsettings.json");

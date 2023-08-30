@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Data.Db;
+namespace basicApp.Data.Db;
 
 public class Item1Table
 {
