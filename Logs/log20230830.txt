@@ -1,3 +1,33 @@
 2023-08-30 19:49:37.294 +02:00 [INF] Existing Tables: Table1Column, __MigrationHistory, Item1Table
 2023-08-30 19:49:37.346 +02:00 [INF] Table Item1Table exists: True
 2023-08-30 19:49:37.348 +02:00 [INF] Number of entries in Item1Table 2
+2023-08-30 19:50:40.426 +02:00 [INF] Existing Tables: Table1Column, __MigrationHistory, Item1Table
+2023-08-30 19:50:40.457 +02:00 [INF] Table Item1Table exists: True
+2023-08-30 19:50:40.459 +02:00 [INF] Number of entries in Item1Table 2
+2023-08-30 19:52:01.504 +02:00 [INF] Existing Tables: Table1Column, __MigrationHistory, Item1Table
+2023-08-30 19:52:01.534 +02:00 [INF] Table Item1Table exists: True
+2023-08-30 19:52:01.536 +02:00 [INF] Number of entries in Item1Table 2
+2023-08-30 19:52:38.123 +02:00 [INF] Existing Tables: Table1Column, __MigrationHistory, Item1Table
+2023-08-30 19:52:38.154 +02:00 [INF] Table Item1Table exists: True
+2023-08-30 19:52:38.156 +02:00 [INF] Number of entries in Item1Table 2
+2023-08-30 19:53:00.728 +02:00 [INF] Existing Tables: Table1Column, __MigrationHistory, Item1Table
+2023-08-30 19:53:00.761 +02:00 [INF] Table Item1Table exists: True
+2023-08-30 19:53:00.763 +02:00 [INF] Number of entries in Item1Table 2
+2023-08-30 19:54:06.119 +02:00 [INF] Existing Tables: Table1Column, __MigrationHistory, Item1Table
+2023-08-30 19:54:06.150 +02:00 [INF] Table Item1Table exists: True
+2023-08-30 19:54:06.152 +02:00 [INF] Number of entries in Item1Table 2
+2023-08-30 20:02:46.140 +02:00 [INF] Existing Tables: Table1Column, __MigrationHistory, Item1Table
+2023-08-30 20:02:46.170 +02:00 [INF] Table Item1Table exists: True
+2023-08-30 20:02:46.172 +02:00 [INF] Number of entries in Item1Table 2
+2023-08-30 20:03:16.959 +02:00 [INF] Existing Tables: Table1Column, __MigrationHistory, Item1Table
+2023-08-30 20:03:16.989 +02:00 [INF] Table Item1Table exists: True
+2023-08-30 20:03:16.991 +02:00 [INF] Number of entries in Item1Table 2
+2023-08-30 20:05:19.526 +02:00 [INF] Existing Tables: Table1Column, __MigrationHistory, Item1Table
+2023-08-30 20:05:19.556 +02:00 [INF] Table Item1Table exists: True
+2023-08-30 20:05:19.558 +02:00 [INF] Number of entries in Item1Table 2
+2023-08-30 20:06:24.590 +02:00 [INF] Existing Tables: Table1Column, __MigrationHistory, Item1Table
+2023-08-30 20:06:24.623 +02:00 [INF] Table Item1Table exists: True
+2023-08-30 20:06:24.625 +02:00 [INF] Number of entries in Item1Table 2
+2023-08-30 20:06:42.726 +02:00 [INF] Existing Tables: Table1Column, __MigrationHistory, Item1Table
+2023-08-30 20:06:42.760 +02:00 [INF] Table Item1Table exists: True
+2023-08-30 20:06:42.762 +02:00 [INF] Number of entries in Item1Table 2

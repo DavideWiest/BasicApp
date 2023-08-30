@@ -13,6 +13,7 @@ using MudBlazor;
 using MudBlazor.Services;
 
 using Areas.Identity;
+using Modules;
 using Data;
 using Data.Storage;
 using Microsoft.Extensions.FileProviders;
@@ -24,6 +25,7 @@ builder.Configuration.AddJsonFile("config/appsettings.json");
 builder.Configuration.AddJsonFile("config/appsettings.Development.json");
 
 var log = new LoggerConfiguration()
+    .Enrich.With(new LoggingOptionEnricher())
     .WriteTo.Logger(lc => lc
         .Filter.ByIncludingOnly(evt => evt.Level == LogEventLevel.Warning || evt.Level == LogEventLevel.Error)
         .WriteTo.File("Logs/priority.txt", rollingInterval: RollingInterval.Day)
@@ -34,6 +36,7 @@ var log = new LoggerConfiguration()
     )
     .WriteTo.Console()
     .WriteTo.File("Logs/log.txt", rollingInterval: RollingInterval.Day)
+    .WriteTo.Sink(new LoggingEventHandler())
     .CreateLogger();
 
 
@@ -92,13 +95,17 @@ builder.Services.AddScoped(provider =>
 
 #if DEBUG
 string TestingTable = "Item1Table";
-log.Information($"Existing Tables: {string.Join(", ", DbHelper.GetExistingTables(new TestDbContext(ConnectionString)))}");
-log.Information($"Table {TestingTable} exists: {DbHelper.CheckTableExists(new TestDbContext(ConnectionString), TestingTable)}");
-log.Information($"Number of entries in {TestingTable} {DbHelper.CheckNumberEntries(new TestDbContext(ConnectionString), TestingTable)}");
+var con = new TestDbContext(ConnectionString);
+log.Information($"Existing Tables: {string.Join(", ", DbHelper.GetExistingTables(con))}");
+log.Information($"Table {TestingTable} exists: {DbHelper.CheckTableExists(con, TestingTable)}");
+log.Information($"Number of entries in {TestingTable} {DbHelper.CheckNumberEntries(con, TestingTable)}");
 #endif
 
 
+
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -114,6 +121,8 @@ else
 
 
 app.UseHttpsRedirection();
+app.UseRouting();
+app.UseAuthorization();
 
 app.UseStaticFiles();
 app.UseStaticFiles(new StaticFileOptions
@@ -123,9 +132,6 @@ app.UseStaticFiles(new StaticFileOptions
 });
 
 
-app.UseRouting();
-
-app.UseAuthorization();
 
 app.MapControllers();
 app.MapBlazorHub();
