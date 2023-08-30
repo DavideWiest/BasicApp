@@ -1,0 +1,52 @@
+﻿@namespace Shared.Identity
+
+@using MudBlazor
+@using Shared
+@using Data.Storage
+
+@using Modules.Db
+
+@inject TestDbManager tdbm
+
+<h1>
+    Persons in test db:
+</h1>
+
+@foreach (var person in tdbm.ReadAll())
+{
+    <div>
+        <p>
+            @person.Name
+        </p>
+        <p>
+            @person.Age | @person.Job
+        </p>
+    </div>
+}
+
+<input type="text" name="formName" id="formName" @bind="@formName">
+<input type="text" name="formJob" id="formJob" @bind="@formJob">
+<input type="number" name="formAge" id="formAge" @bind="@formAge">
+<MudButton OnClick="SubmitForm">Add a test person</MudButton>
+
+
+
+
+
+@code {
+    private string formName = "";
+    private string formJob = "";
+    private short formAge;
+
+
+    protected override void OnInitialized()
+    {
+        Console.WriteLine("init. Test db entries:");
+        Console.WriteLine(tdbm.ReadAll().Count);
+    }
+    private void SubmitForm()
+    {
+        Console.WriteLine("Inserting new test person");
+        Console.WriteLine(tdbm.InsertOne(formName, formJob, formAge));
+    }
+}

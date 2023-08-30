@@ -1,0 +1,3 @@
+2023-08-30 19:42:24.437 +02:00 [INF] Existing Tables: Table1Column, __MigrationHistory, Item1Table
+2023-08-30 19:42:24.456 +02:00 [INF] Table Item1Table exists: True
+2023-08-30 19:42:24.458 +02:00 [INF] Number of entries in Item1Table 2
