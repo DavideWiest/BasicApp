@@ -6,23 +6,26 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 // should remove this, and switch to et 6
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
+using Areas.Identity;
 
 using Serilog;
+using Serilog.Events;
 
 using MudBlazor;
 using MudBlazor.Services;
 
-using Areas.Identity;
 using Modules;
+using Modules.Middleware;
+using Modules.Db;
 using Data;
 using Data.Storage;
-using Microsoft.Extensions.FileProviders;
-using Modules.Db;
-using Serilog.Events;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("config/appsettings.json");
 builder.Configuration.AddJsonFile("config/appsettings.Development.json");
+
+// LOGGER
 
 var log = new LoggerConfiguration()
     .Enrich.With(new LoggingOptionEnricher())
@@ -40,7 +43,8 @@ var log = new LoggerConfiguration()
     .CreateLogger();
 
 
-// Add services to the container.
+// USER
+
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
@@ -74,14 +78,25 @@ builder.Services.AddControllersWithViews(options =>
     options.Conventions.Add(new RoutePrefixConvention("api"));
 }).AddControllersAsServices();
 
+// CONSTR
+
 #if DEBUG
 string ConnectionString = builder.Configuration["Database:ConnectionStringTesting"]!;
 #else
 string ConnectionString  = builder.Configuration["Database:ConnectionStringProduction"]!;
 #endif
 
+// DB TESTING 
+
+#if DEBUG
+string TestingTable = "Item1Table";
+var con = new TestDbContext(ConnectionString);
+log.Information($"Existing Tables: {string.Join(", ", DbHelper.GetExistingTables(con))}");
+log.Information($"Table {TestingTable} exists: {DbHelper.CheckTableExists(con, TestingTable)}");
+log.Information($"Number of entries in {TestingTable} {DbHelper.CheckNumberEntries(con, TestingTable)}");
+#endif
+
 // MODULES
-//builder.Services.AddSingleton<WeatherForecastService>();
 
 builder.Services.AddSingleton<Constants>();
 builder.Services.AddSingleton<FundamentalStorage>();
@@ -93,21 +108,16 @@ builder.Services.AddScoped(provider =>
     return new TestDbManager(new TestDbContext(ConnectionString));
 });
 
-#if DEBUG
-string TestingTable = "Item1Table";
-var con = new TestDbContext(ConnectionString);
-log.Information($"Existing Tables: {string.Join(", ", DbHelper.GetExistingTables(con))}");
-log.Information($"Table {TestingTable} exists: {DbHelper.CheckTableExists(con, TestingTable)}");
-log.Information($"Number of entries in {TestingTable} {DbHelper.CheckNumberEntries(con, TestingTable)}");
-#endif
-
-
 
 var app = builder.Build();
 
+// MIDDLEWARE
+
+app.UseMiddleware<LoggingMiddleware>();
 
 
-// Configure the HTTP request pipeline.
+// HSTS
+
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
