@@ -31,3 +31,27 @@
 2023-08-30 20:06:42.726 +02:00 [INF] Existing Tables: Table1Column, __MigrationHistory, Item1Table
 2023-08-30 20:06:42.760 +02:00 [INF] Table Item1Table exists: True
 2023-08-30 20:06:42.762 +02:00 [INF] Number of entries in Item1Table 2
+2023-08-30 20:12:47.464 +02:00 [INF] Existing Tables: Table1Column, __MigrationHistory, Item1Table
+2023-08-30 20:12:47.521 +02:00 [INF] Table Item1Table exists: True
+2023-08-30 20:12:47.523 +02:00 [INF] Number of entries in Item1Table 2
+2023-08-30 20:13:38.970 +02:00 [INF] Existing Tables: Table1Column, __MigrationHistory, Item1Table
+2023-08-30 20:13:39.002 +02:00 [INF] Table Item1Table exists: True
+2023-08-30 20:13:39.003 +02:00 [INF] Number of entries in Item1Table 2
+2023-08-30 20:15:20.797 +02:00 [INF] Existing Tables: Table1Column, __MigrationHistory, Item1Table
+2023-08-30 20:15:20.829 +02:00 [INF] Table Item1Table exists: True
+2023-08-30 20:15:20.831 +02:00 [INF] Number of entries in Item1Table 2
+2023-08-30 20:28:50.720 +02:00 [INF] Request from ::1: / took 269.1841 ms
+2023-08-30 20:28:50.742 +02:00 [INF] Request from ::1: /_content/MudBlazor/MudBlazor.min.css took 5.9391 ms
+2023-08-30 20:28:50.758 +02:00 [INF] Request from ::1: /_framework/blazor.server.js took 1.4328 ms
+2023-08-30 20:28:50.792 +02:00 [INF] Request from ::1: /_content/MudBlazor/MudBlazor.min.js took 0.4531 ms
+2023-08-30 20:28:50.970 +02:00 [INF] Request from ::1: /_blazor/initializers took 5.2641 ms
+2023-08-30 20:28:51.016 +02:00 [INF] Request from ::1: /_blazor/negotiate took 10.9332 ms
+2023-08-30 20:30:22.370 +02:00 [INF] Request from ::1: / took 248.8326 ms
+2023-08-30 20:30:22.392 +02:00 [INF] Request from ::1: /_content/MudBlazor/MudBlazor.min.css took 5.8304 ms
+2023-08-30 20:30:22.396 +02:00 [INF] Request from ::1: /_blazor/disconnect took 17.5416 ms
+2023-08-30 20:30:22.404 +02:00 [INF] Request from ::1: /_framework/blazor.server.js took 1.5798 ms
+2023-08-30 20:30:22.412 +02:00 [INF] Request from ::1: /_content/MudBlazor/MudBlazor.min.js took 0.6673 ms
+2023-08-30 20:30:22.422 +02:00 [INF] Request from ::1: /_framework/blazor.server.js took 0.266 ms
+2023-08-30 20:30:22.422 +02:00 [INF] Request from ::1: /_content/MudBlazor/MudBlazor.min.js took 0.213 ms
+2023-08-30 20:30:22.535 +02:00 [INF] Request from ::1: /_blazor/initializers took 4.4708 ms
+2023-08-30 20:30:22.550 +02:00 [INF] Request from ::1: /_blazor/negotiate took 9.2863 ms

@@ -9,13 +9,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Areas.Identity;
 
-using Serilog;
-using Serilog.Events;
-
 using MudBlazor;
 using MudBlazor.Services;
 
-using Modules;
+using Modules.Logging;
 using Modules.Middleware;
 using Modules.Db;
 using Data;
@@ -26,21 +23,6 @@ builder.Configuration.AddJsonFile("config/appsettings.json");
 builder.Configuration.AddJsonFile("config/appsettings.Development.json");
 
 // LOGGER
-
-var log = new LoggerConfiguration()
-    .Enrich.With(new LoggingOptionEnricher())
-    .WriteTo.Logger(lc => lc
-        .Filter.ByIncludingOnly(evt => evt.Level == LogEventLevel.Warning || evt.Level == LogEventLevel.Error)
-        .WriteTo.File("Logs/priority.txt", rollingInterval: RollingInterval.Day)
-    )
-    .WriteTo.Logger(lc => lc
-        .Filter.ByIncludingOnly(evt => evt.Level == LogEventLevel.Error)
-        .WriteTo.File("Logs/error.txt", rollingInterval: RollingInterval.Day)
-    )
-    .WriteTo.Console()
-    .WriteTo.File("Logs/log.txt", rollingInterval: RollingInterval.Day)
-    .WriteTo.Sink(new LoggingEventHandler())
-    .CreateLogger();
 
 
 // USER
@@ -91,9 +73,9 @@ string ConnectionString  = builder.Configuration["Database:ConnectionStringProdu
 #if DEBUG
 string TestingTable = "Item1Table";
 var con = new TestDbContext(ConnectionString);
-log.Information($"Existing Tables: {string.Join(", ", DbHelper.GetExistingTables(con))}");
-log.Information($"Table {TestingTable} exists: {DbHelper.CheckTableExists(con, TestingTable)}");
-log.Information($"Number of entries in {TestingTable} {DbHelper.CheckNumberEntries(con, TestingTable)}");
+Log.Debug($"Existing Tables: {string.Join(", ", DbHelper.GetExistingTables(con))}");
+Log.Debug($"Table {TestingTable} exists: {DbHelper.CheckTableExists(con, TestingTable)}");
+Log.Debug($"Number of entries in {TestingTable} {DbHelper.CheckNumberEntries(con, TestingTable)}");
 #endif
 
 // MODULES
@@ -101,7 +83,7 @@ log.Information($"Number of entries in {TestingTable} {DbHelper.CheckNumberEntri
 builder.Services.AddSingleton<Constants>();
 builder.Services.AddSingleton<FundamentalStorage>();
 builder.Services.AddSingleton<MainStorage>();
-builder.Services.AddSingleton(provider => log);
+builder.Services.AddScoped<LoggingMiddleware>();
 
 builder.Services.AddScoped(provider =>
 {

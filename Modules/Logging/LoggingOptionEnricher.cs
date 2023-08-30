@@ -1,4 +1,4 @@
-﻿namespace Modules;
+﻿namespace Modules.Logging;
 
 using Serilog.Core;
 using Serilog.Events;

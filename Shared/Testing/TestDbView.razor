@@ -5,8 +5,11 @@
 @using Data.Storage
 
 @using Modules.Db
+@using Modules.Logging
+@using Serilog.Core
 
 @inject TestDbManager tdbm
+
 
 <h1>
     Persons in test db:
@@ -41,12 +44,12 @@
 
     protected override void OnInitialized()
     {
-        Console.WriteLine("init. Test db entries:");
-        Console.WriteLine(tdbm.ReadAll().Count);
+        Log.Debug("Init. Test db entries:");
+        Log.Debug("Testdb collection count: {count}", tdbm.ReadAll().Count);
     }
     private void SubmitForm()
     {
-        Console.WriteLine("Inserting new test person");
-        Console.WriteLine(tdbm.InsertOne(formName, formJob, formAge));
+        Log.Debug("Inserting new test person");
+        Log.Debug("Success: {status}", tdbm.InsertOne(formName, formJob, formAge));
     }
 }

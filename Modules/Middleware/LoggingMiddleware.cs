@@ -1,12 +1,9 @@
-﻿using Serilog;
-using System.Diagnostics;
-
-namespace Modules.Middleware;
+﻿namespace Modules.Middleware;
 
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
-using Serilog;
+using Modules.Logging;
 
 public class LoggingMiddleware : IMiddleware
 {
