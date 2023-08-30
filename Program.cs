@@ -48,15 +48,17 @@ builder.Services.AddMudServices(config =>
     config.SnackbarConfiguration.SnackbarVariant = Variant.Filled;
 });
 
-
-
-
 // API
 builder.Services.AddControllersWithViews(options =>
 {
     options.Conventions.Add(new RoutePrefixConvention("api"));
 }).AddControllersAsServices();
 
+#if DEBUG
+string testdbConnectionString = builder.Configuration["Database:ConnectionStringTesting"]!;
+#else
+string testdbConnectionString  = builder.Configuration["Database:ConnectionStringProduction"]!;
+#endif
 
 // MODULES
 //builder.Services.AddSingleton<WeatherForecastService>();
@@ -65,15 +67,12 @@ builder.Services.AddSingleton<Constants>();
 builder.Services.AddSingleton<FundamentalStorage>();
 builder.Services.AddSingleton<MainStorage>();
 
-
+builder.Services.AddScoped(provider =>
+{
+    return new TestDbManager(new TestDbContext(testdbConnectionString));
+});
 
 var app = builder.Build();
-
-#if DEBUG
-DbManager.ConStr = builder.Configuration["Database:ConnectionStringTesting"]!;
-#else
-DbManager.ConStr = builder.Configuration["Database:ConnectionStringProduction"]!;
-#endif
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
