@@ -8,9 +8,9 @@ public class Notification
 {
     [Key]
     public int NotificationId { get; set; }
-
+    [Required]
     public int UserId { get; set; }
-    
+    [Required]
     public string Message { get; set; }
 
     public DateTime Timestamp { get; set; }
@@ -31,7 +31,8 @@ public class Notification
 public enum NotificationStatus
 {
     Unread,
-    Read
+    Read,
+    Deleted
 }
 
 public enum NotificationPriority
