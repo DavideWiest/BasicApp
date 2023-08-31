@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.ApplicationModels;
 
-using basicApp.Data.Storage;
+using BasicApp.Data.Storage;
 
 public class RoutePrefixConvention : IApplicationModelConvention
 {

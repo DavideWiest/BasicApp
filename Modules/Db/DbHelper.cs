@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace basicApp.Modules.Db;
+namespace BasicApp.Modules.Db;
 
 public static class DbHelper
 {

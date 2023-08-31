@@ -1,4 +1,4 @@
-﻿namespace basicApp.Modules.Logging;
+﻿namespace BasicApp.Modules.Logging;
 
 using Serilog;
 using Serilog.Events;

@@ -1,16 +1,16 @@
-﻿namespace basicApp.Modules.Db;
+﻿namespace BasicApp.Modules.Db;
 
-using basicApp.Data.Db;
+using BasicApp.Data.Models;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
 
-public class TestDbManager
+public class TestTableManager
 {
 
     private TestDbContext db;
 
-    public TestDbManager(TestDbContext db)
+    public TestTableManager(TestDbContext db)
     {
         this.db = db;
     }
@@ -35,6 +35,7 @@ public class TestDbManager
 public class TestDbContext : DbContext
 {
     public DbSet<Item1Table> Item1Table { get; set; }
+    public DbSet<UserNotification> NotificationTable { get; set; }
 
     public TestDbContext(string ConnectionString) : base(ConnectionString)
     {

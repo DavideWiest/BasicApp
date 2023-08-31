@@ -1,7 +1,7 @@
-namespace basicApp.Modules;
+namespace BasicApp.Modules;
 
 using Newtonsoft.Json;
-using basicApp.Data.Storage;
+using BasicApp.Data.Storage;
 
 
 

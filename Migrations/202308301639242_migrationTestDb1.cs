@@ -1,4 +1,4 @@
-﻿namespace basicApp.Migrations;
+﻿namespace BasicApp.Migrations;
 
 using System;
 using System.Data.Entity.Migrations;

@@ -1,7 +1,7 @@
 ﻿using Serilog.Core;
 using Serilog.Events;
 
-namespace basicApp.Modules.Logging;
+namespace BasicApp.Modules.Logging;
 
 
 public class LoggingEventHandler : ILogEventSink

@@ -12,11 +12,11 @@ using Areas.Identity;
 using MudBlazor;
 using MudBlazor.Services;
 
-using basicApp.Modules.Logging;
-using basicApp.Modules.Middleware;
-using basicApp.Modules.Db;
-using basicApp.Data;
-using basicApp.Data.Storage;
+using BasicApp.Modules.Logging;
+using BasicApp.Modules.Middleware;
+using BasicApp.Modules.Db;
+using BasicApp.Data;
+using BasicApp.Data.Storage;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("config/appsettings.json");
@@ -87,7 +87,7 @@ builder.Services.AddScoped<LoggingMiddleware>();
 
 builder.Services.AddScoped(provider =>
 {
-    return new TestDbManager(new TestDbContext(ConnectionString));
+    return new TestTableManager(new TestDbContext(ConnectionString));
 });
 
 

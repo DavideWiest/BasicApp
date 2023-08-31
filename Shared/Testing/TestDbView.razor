@@ -1,14 +1,15 @@
-﻿@namespace basicApp.Shared.Identity
+﻿@namespace BasicApp.Shared.Identity
 
 @using MudBlazor
-@using basicApp.Shared
-@using basicApp.Data.Storage
+@using BasicApp.Shared
+@using BasicApp.Data.Storage
 
-@using basicApp.Modules.Db
-@using basicApp.Modules.Logging
+@using BasicApp.Modules.Db
+@using BasicApp.Modules.Logging
 @using Serilog.Core
 
-@inject TestDbManager tdbm
+@inject TestTableManager tdbm
+@inject NotificationManager nm
 
 <div>
 
@@ -18,16 +19,19 @@
 
     @foreach (var person in tdbm.ReadAll())
     {
-        <div>
-            <p>
+        <div class="m-4">
+            <p class="text-lg">
                 @person.Id | @person.Name | @person.Age | @person.Job
             </p>
             <p>
                 Notifications: 
             </p>
-            <p>
-
-            </p>
+            @foreach (var notification in nm.ReadAllByUserId(person.Id))
+            {
+                <p>
+                    @notification.Id | @notification.Message 
+                </p>
+            }
             
             <MudButton>
                 Add a notification

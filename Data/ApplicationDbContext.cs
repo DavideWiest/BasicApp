@@ -1,4 +1,4 @@
-﻿namespace basicApp.Data;
+﻿namespace BasicApp.Data;
 
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
