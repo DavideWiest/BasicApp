@@ -40,3 +40,9 @@ Error Number:208,State:1,Class:16
 2023-08-31 19:06:54.281 +02:00 [FTL] Test fatal channel
 2023-08-31 19:08:28.912 +02:00 [ERR] Test error channel
 2023-08-31 19:08:28.918 +02:00 [FTL] Test fatal channel
+2023-08-31 19:08:54.733 +02:00 [ERR] Test error channel
+2023-08-31 19:08:54.738 +02:00 [FTL] Test fatal channel
+2023-08-31 19:09:36.259 +02:00 [ERR] Test error channel
+2023-08-31 19:09:36.263 +02:00 [FTL] Test fatal channel
+2023-08-31 19:11:46.101 +02:00 [ERR] Test error channel
+2023-08-31 19:11:46.105 +02:00 [FTL] Test fatal channel

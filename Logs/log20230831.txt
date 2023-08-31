@@ -483,3 +483,71 @@ Error Number:208,State:1,Class:16
 2023-08-31 19:08:31.411 +02:00 [INF] Request Ip=::1 Url=/_blazor/negotiate Time=006.716
 2023-08-31 19:08:31.489 +02:00 [DBG] Init. Test db entries:
 2023-08-31 19:08:31.490 +02:00 [DBG] Testdb collection count: 2
+2023-08-31 19:08:54.701 +02:00 [DBG] Test debug channel
+2023-08-31 19:08:54.728 +02:00 [INF] Test info channel
+2023-08-31 19:08:54.728 +02:00 [WRN] Test warning channel
+2023-08-31 19:08:54.733 +02:00 [INF] Test data channel
+2023-08-31 19:08:54.733 +02:00 [ERR] Test error channel
+2023-08-31 19:08:54.738 +02:00 [FTL] Test fatal channel
+2023-08-31 19:08:55.964 +02:00 [DBG] Existing Tables: TestUser, UserNotifications, __MigrationHistory
+2023-08-31 19:08:55.971 +02:00 [DBG] Table TestUser exists: True
+2023-08-31 19:08:55.973 +02:00 [DBG] Number of entries in TestUser 2
+2023-08-31 19:08:56.316 +02:00 [INF] Request Ip=127.0.0.1 Url=/_blazor/negotiate Time=026.396
+2023-08-31 19:08:56.461 +02:00 [DBG] Init. Test db entries:
+2023-08-31 19:08:56.522 +02:00 [DBG] Testdb collection count: 2
+2023-08-31 19:08:56.701 +02:00 [INF] Request Ip=::1 Url=/ Time=434.526
+2023-08-31 19:08:56.715 +02:00 [INF] Request Ip=::1 Url=/_blazor Time=393.109
+2023-08-31 19:08:56.720 +02:00 [INF] Request Ip=127.0.0.1 Url=/_content/MudBlazor/MudBlazor.min.css Time=004.128
+2023-08-31 19:08:56.720 +02:00 [INF] Request Ip=127.0.0.1 Url=/_framework/blazor.server.js Time=004.349
+2023-08-31 19:08:56.730 +02:00 [INF] Request Ip=::1 Url=/_blazor/disconnect Time=007.839
+2023-08-31 19:08:56.734 +02:00 [INF] Request Ip=::1 Url=/_content/MudBlazor/MudBlazor.min.js Time=000.721
+2023-08-31 19:08:56.832 +02:00 [INF] Request Ip=127.0.0.1 Url=/_blazor/initializers Time=002.395
+2023-08-31 19:08:56.865 +02:00 [INF] Request Ip=127.0.0.1 Url=/_blazor/negotiate Time=000.522
+2023-08-31 19:08:56.911 +02:00 [DBG] Init. Test db entries:
+2023-08-31 19:08:56.912 +02:00 [DBG] Testdb collection count: 2
+2023-08-31 19:09:36.225 +02:00 [DBG] Test debug channel
+2023-08-31 19:09:36.251 +02:00 [INF] Test info channel
+2023-08-31 19:09:36.252 +02:00 [WRN] Test warning channel
+2023-08-31 19:09:36.258 +02:00 [INF] Test data channel
+2023-08-31 19:09:36.259 +02:00 [ERR] Test error channel
+2023-08-31 19:09:36.263 +02:00 [FTL] Test fatal channel
+2023-08-31 19:09:37.458 +02:00 [DBG] Existing Tables: TestUser, UserNotifications, __MigrationHistory
+2023-08-31 19:09:37.465 +02:00 [DBG] Table TestUser exists: True
+2023-08-31 19:09:37.467 +02:00 [DBG] Number of entries in TestUser 2
+2023-08-31 19:09:37.921 +02:00 [DBG] Init. Test db entries:
+2023-08-31 19:09:37.975 +02:00 [DBG] Testdb collection count: 2
+2023-08-31 19:09:38.145 +02:00 [INF] Request Ip=::1 Url=/ Time=395.200
+2023-08-31 19:09:38.166 +02:00 [INF] Request Ip=::1 Url=/_framework/blazor.server.js Time=003.094
+2023-08-31 19:09:38.170 +02:00 [INF] Request Ip=::1 Url=/_blazor/disconnect Time=016.253
+2023-08-31 19:09:38.173 +02:00 [INF] Request Ip=::1 Url=/_content/MudBlazor/MudBlazor.min.js Time=001.589
+2023-08-31 19:09:38.173 +02:00 [INF] Request Ip=::1 Url=/_content/MudBlazor/MudBlazor.min.css Time=001.571
+2023-08-31 19:09:38.293 +02:00 [INF] Request Ip=::1 Url=/_blazor/initializers Time=002.939
+2023-08-31 19:09:38.318 +02:00 [INF] Request Ip=::1 Url=/_blazor/negotiate Time=006.994
+2023-08-31 19:09:38.383 +02:00 [DBG] Init. Test db entries:
+2023-08-31 19:09:38.384 +02:00 [DBG] Testdb collection count: 2
+2023-08-31 19:11:04.141 +02:00 [INF] Request Ip=::1 Url=/_blazor/disconnect Time=001.592
+2023-08-31 19:11:40.462 +02:00 [INF] Request Ip=::1 Url=/_blazor Time=122141.019
+2023-08-31 19:11:46.070 +02:00 [DBG] Test debug channel
+2023-08-31 19:11:46.096 +02:00 [INF] Test info channel
+2023-08-31 19:11:46.096 +02:00 [WRN] Test warning channel
+2023-08-31 19:11:46.101 +02:00 [INF] Test data channel
+2023-08-31 19:11:46.101 +02:00 [ERR] Test error channel
+2023-08-31 19:11:46.105 +02:00 [FTL] Test fatal channel
+2023-08-31 19:11:47.267 +02:00 [DBG] Existing Tables: TestUser, UserNotifications, __MigrationHistory
+2023-08-31 19:11:47.275 +02:00 [DBG] Table TestUser exists: True
+2023-08-31 19:11:47.277 +02:00 [DBG] Number of entries in TestUser 2
+2023-08-31 19:11:47.917 +02:00 [DBG] Init. Test db entries:
+2023-08-31 19:11:47.972 +02:00 [DBG] Testdb collection count: 2
+2023-08-31 19:11:48.139 +02:00 [INF] Request Ip=::1 Url=/ Time=393.984
+2023-08-31 19:11:48.169 +02:00 [INF] Request Ip=::1 Url=/_content/MudBlazor/MudBlazor.min.css Time=005.228
+2023-08-31 19:11:48.174 +02:00 [INF] Request Ip=::1 Url=/_framework/blazor.server.js Time=000.568
+2023-08-31 19:11:48.204 +02:00 [INF] Request Ip=::1 Url=/_content/MudBlazor/MudBlazor.min.js Time=001.384
+2023-08-31 19:11:48.388 +02:00 [INF] Request Ip=::1 Url=/_blazor/initializers Time=004.205
+2023-08-31 19:11:48.415 +02:00 [INF] Request Ip=::1 Url=/_blazor/negotiate Time=008.379
+2023-08-31 19:11:48.488 +02:00 [DBG] Init. Test db entries:
+2023-08-31 19:11:48.489 +02:00 [DBG] Testdb collection count: 2
+2023-08-31 19:12:06.202 +02:00 [INF] Request Ip=::1 Url=/_blazor/negotiate Time=000.434
+2023-08-31 19:12:06.756 +02:00 [INF] Request Ip=::1 Url=/_blazor/disconnect Time=007.540
+2023-08-31 19:12:06.763 +02:00 [INF] Request Ip=::1 Url=/_blazor Time=558.726
+2023-08-31 19:37:00.873 +02:00 [INF] Request Ip=::1 Url=/_blazor/disconnect Time=005.774
+2023-08-31 19:37:00.876 +02:00 [INF] Request Ip=::1 Url=/_blazor Time=1512456.719
