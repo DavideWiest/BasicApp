@@ -10,29 +10,38 @@
 
 @inject TestDbManager tdbm
 
+<div>
 
-<h1>
-    Persons in test db:
-</h1>
+    <h1 class="text-xl m-3">
+        Persons in test db:
+    </h1>
 
-@foreach (var person in tdbm.ReadAll())
-{
-    <div>
-        <p>
-            @person.Name
-        </p>
-        <p>
-            @person.Age | @person.Job
-        </p>
+    @foreach (var person in tdbm.ReadAll())
+    {
+        <div>
+            <p>
+                @person.Id | @person.Name | @person.Age | @person.Job
+            </p>
+            <p>
+                Notifications: 
+            </p>
+            <p>
+
+            </p>
+            
+            <MudButton>
+                Add a notification
+            </MudButton>
+        </div>
+    }
+    <div class="m-3">
+        <MudTextField @bind-Value="@formName" />
+        <MudTextField @bind-Value="@formJob" />
+        <MudNumericField @bind-Value="@formAge" />
+        <MudButton OnClick="SubmitForm">Add a test person</MudButton>
     </div>
-}
 
-<input type="text" name="formName" id="formName" @bind="@formName">
-<input type="text" name="formJob" id="formJob" @bind="@formJob">
-<input type="number" name="formAge" id="formAge" @bind="@formAge">
-<MudButton OnClick="SubmitForm">Add a test person</MudButton>
-
-
+</div>
 
 
 
