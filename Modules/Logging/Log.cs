@@ -6,6 +6,9 @@ using Serilog.Events;
 public static class Log
 {
     private static readonly ILogger SLogger = new LoggerConfiguration()
+    #if DEBUG
+    .MinimumLevel.Debug()
+    #endif
     .Enrich.With(new LoggingOptionEnricher())
     .WriteTo.Logger(lc => lc
         .Filter.ByIncludingOnly(evt => evt.Level == LogEventLevel.Warning || evt.Level == LogEventLevel.Error || evt.Level == LogEventLevel.Fatal)
@@ -19,9 +22,9 @@ public static class Log
         .Filter.ByIncludingOnly(evt => evt.Properties.ContainsKey("Channel") && evt.Properties["Channel"].ToString() == "Data")
         .WriteTo.File("Logs/data.txt", rollingInterval: RollingInterval.Day)
     )
+    .WriteTo.Sink(new LoggingEventHandler())
     .WriteTo.Console()
     .WriteTo.File("Logs/log.txt", rollingInterval: RollingInterval.Day)
-    .WriteTo.Sink(new LoggingEventHandler())
     .CreateLogger();
 
 

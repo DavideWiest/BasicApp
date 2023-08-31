@@ -3,12 +3,12 @@
 @using MudBlazor
 @using BasicApp.Shared
 @using BasicApp.Data.Storage
-
+@using BasicApp.Data.Models
 @using BasicApp.Modules.Db
 @using BasicApp.Modules.Logging
 @using Serilog.Core
 
-@inject TestTableManager tdbm
+@inject UserManager tdbm
 @inject NotificationManager nm
 
 <div>
@@ -26,23 +26,48 @@
             <p>
                 Notifications: 
             </p>
-            @foreach (var notification in nm.ReadAllByUserId(person.Id))
+            @foreach (var notification in nm.GetAllByUserId(person.Id))
             {
                 <p>
-                    @notification.Id | @notification.Message 
+                    @notification.NotificationId | @notification.Message | @notification.Status
                 </p>
             }
-            
-            <MudButton>
-                Add a notification
-            </MudButton>
         </div>
     }
     <div class="m-3">
-        <MudTextField @bind-Value="@formName" />
-        <MudTextField @bind-Value="@formJob" />
-        <MudNumericField @bind-Value="@formAge" />
+        <MudTextField @bind-Value="@formName" Label="Name" />
+        <MudTextField @bind-Value="@formJob" Label="Job" />
+        <MudNumericField @bind-Value="@formAge" Label="Age" />
         <MudButton OnClick="SubmitForm">Add a test person</MudButton>
+    </div>
+
+    <div class="m-3">
+        <MudSelect @bind-Value="@notification.Id">
+            @foreach (var person in tdbm.ReadAll())
+            {
+                <MudSelectItem Value="@person.Id"/>
+            }
+        </MudSelect>
+        <MudTextField @bind-Value="@notification.Message" Label="Message"/>
+        <MudTextField @bind-Value="@notification.Source" Label="Source" />
+        <MudSelect T="NotificationPriority" @bind-Value="@notification.Priority">
+            @foreach (var priority in Enum.GetValues(typeof(NotificationPriority)).Cast<NotificationPriority>())
+            {
+                <MudSelectItem Value="@priority">
+                    @priority.ToString()
+                </MudSelectItem>
+            }
+        </MudSelect>
+        <MudSelect T="NotificationStatus" @bind-Value="@notification.Status">
+            @foreach (var status in Enum.GetValues(typeof(NotificationStatus)).Cast<NotificationStatus>())
+            {
+                <MudSelectItem Value="@status">
+                    @status.ToString()
+                </MudSelectItem>
+            }
+        </MudSelect>
+        
+        <MudButton OnClick="SubmitNotification">Add a notifiation</MudButton>
     </div>
 
 </div>
@@ -54,6 +79,8 @@
     private string formJob = "";
     private short formAge;
 
+    private UserNotification notification = new(0,"",NotificationPriority.Low,"");
+
 
     protected override void OnInitialized()
     {
@@ -64,5 +91,14 @@
     {
         Log.Debug("Inserting new test person");
         Log.Debug("Success: {status}", tdbm.InsertOne(formName, formJob, formAge));
+    }
+    private void AddAdditonalNotificationDetails()
+    {
+         
+    }
+    private void SubmitNotification()
+    {
+        Log.Debug("Submitting test notification");
+        nm.InsertOne(notification);
     }
 }

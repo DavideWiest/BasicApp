@@ -1,22 +1,23 @@
-﻿namespace BasicApp.Migrations;
-
-using System;
-using System.Data.Entity;
-using System.Data.Entity.Migrations;
-using System.Linq;
-
-internal sealed class Configuration : DbMigrationsConfiguration<Modules.Db.TestDbContext>
+﻿namespace BasicApp.Migrations
 {
-    public Configuration()
-    {
-        AutomaticMigrationsEnabled = false;
-    }
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
 
-    protected override void Seed(Modules.Db.TestDbContext context)
+    internal sealed class Configuration : DbMigrationsConfiguration<Modules.Db.TestDbContext>
     {
-        //  This method will be called after migrating to the latest version.
+        public Configuration()
+        {
+            AutomaticMigrationsEnabled = true;
+        }
 
-        //  You can use the DbSet<T>.AddOrUpdate() helper extension method
-        //  to avoid creating duplicate seed data.
+        protected override void Seed(Modules.Db.TestDbContext context)
+        {
+            //  This method will be called after migrating to the latest version.
+
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
+            //  to avoid creating duplicate seed data.
+        }
     }
 }

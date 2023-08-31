@@ -68,11 +68,20 @@ string ConnectionString = builder.Configuration["Database:ConnectionStringTestin
 string ConnectionString  = builder.Configuration["Database:ConnectionStringProduction"]!;
 #endif
 
+
 // DB TESTING 
 
 #if DEBUG
-string TestingTable = "Item1Table";
+string TestingTable = "TestUser";
 var con = new TestDbContext(ConnectionString);
+Log.Verbose("Test verbose channel");
+Log.Debug("Test debug channel");
+Log.Information("Test info channel");
+Log.Warning("Test warning channel");
+Log.Data("Test data channel");
+Log.Error("Test error channel");
+Log.Fatal("Test fatal channel");
+
 Log.Debug($"Existing Tables: {string.Join(", ", DbHelper.GetExistingTables(con))}");
 Log.Debug($"Table {TestingTable} exists: {DbHelper.CheckTableExists(con, TestingTable)}");
 Log.Debug($"Number of entries in {TestingTable} {DbHelper.CheckNumberEntries(con, TestingTable)}");
@@ -87,7 +96,11 @@ builder.Services.AddScoped<LoggingMiddleware>();
 
 builder.Services.AddScoped(provider =>
 {
-    return new TestTableManager(new TestDbContext(ConnectionString));
+    return new UserManager(new TestDbContext(ConnectionString));
+});
+builder.Services.AddScoped(provider =>
+{
+    return new NotificationManager(new TestDbContext(ConnectionString));
 });
 
 
