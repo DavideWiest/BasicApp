@@ -19,7 +19,3 @@ public class LoggingOptionEnricher : ILogEventEnricher
         logEvent.AddPropertyIfAbsent(NotifyUserProperty);
     }
 }
-
-public class Logging
-{
-}
