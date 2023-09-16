@@ -74,13 +74,7 @@ string ConnectionString  = builder.Configuration["Database:ConnectionStringProdu
 #if DEBUG
 string TestingTable = "TestUser";
 var con = new TestDbContext(ConnectionString);
-Log.Verbose("Test verbose channel");
-Log.Debug("Test debug channel");
 Log.Information("Test info channel");
-Log.Warning("Test warning channel");
-Log.Data("Test data channel");
-Log.Error("Test error channel");
-Log.Fatal("Test fatal channel");
 
 Log.Debug($"Existing Tables: {string.Join(", ", DbHelper.GetExistingTables(con))}");
 Log.Debug($"Table {TestingTable} exists: {DbHelper.CheckTableExists(con, TestingTable)}");
