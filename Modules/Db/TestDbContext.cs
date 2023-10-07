@@ -13,14 +13,9 @@ public class TestDbContext : DbContext
     public DbSet<UserNotification> UserNotifications { get; set; }
 
 
-    public TestDbContext(string ConnectionString) : base(ConnectionString)
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        
-    }
-
-    public TestDbContext() : base(GetConnectionString())
-    {
-        
+        optionsBuilder.UseNpgsql(GetConnectionString());
     }
 
     private static string GetConnectionString()
