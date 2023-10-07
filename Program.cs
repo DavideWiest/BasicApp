@@ -25,16 +25,6 @@ builder.Configuration.AddJsonFile("config/appsettings.Development.json");
 // LOGGER
 
 
-// USER
-
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
-
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
-
-
 
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
@@ -97,6 +87,8 @@ builder.Services.AddScoped(provider =>
     return new NotificationManager(new TestDbContext(ConnectionString));
 });
 
+// prevents 404 when switching environments - see https://github.com/MudBlazor/Templates/commit/62e13c61058b419b8957f7d19f38c69a70ef50e6
+StaticWebAssetsLoader.UseStaticWebAssets(builder.Environment, builder.Configuration);
 
 var app = builder.Build();
 
