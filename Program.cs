@@ -52,18 +52,18 @@ builder.Services.AddControllersWithViews(options =>
 
 // CONSTR
 
-#if DEBUG
-string ConnectionString = builder.Configuration["Database:ConnectionStringTesting"]!;
-#else
-string ConnectionString  = builder.Configuration["Database:ConnectionStringProduction"]!;
-#endif
+//#if DEBUG
+//string ConnectionString = builder.Configuration["Database:ConnectionStringTesting"]!;
+//#else
+//string ConnectionString  = builder.Configuration["Database:ConnectionStringProduction"]!;
+//#endif
 
 
 // DB TESTING 
 
 #if DEBUG
 string TestingTable = "TestUser";
-var con = new TestDbContext(ConnectionString);
+var con = new TestDbContext();
 Log.Information("Test info channel");
 
 Log.Debug($"Existing Tables: {string.Join(", ", DbHelper.GetExistingTables(con))}");
@@ -80,11 +80,11 @@ builder.Services.AddScoped<LoggingMiddleware>();
 
 builder.Services.AddScoped(provider =>
 {
-    return new UserManager(new TestDbContext(ConnectionString));
+    return new UserManager(new TestDbContext());
 });
 builder.Services.AddScoped(provider =>
 {
-    return new NotificationManager(new TestDbContext(ConnectionString));
+    return new NotificationManager(new TestDbContext());
 });
 
 // prevents 404 when switching environments - see https://github.com/MudBlazor/Templates/commit/62e13c61058b419b8957f7d19f38c69a70ef50e6
