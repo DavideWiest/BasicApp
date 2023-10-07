@@ -23,19 +23,13 @@ public class TestDbContext : DbContext
         
     }
 
-    public static string GetConnectionString()
+    private static string GetConnectionString()
     {
-        var configBuilder = new ConfigurationBuilder()
-        .AddJsonFile("config/appsettings.json")
-        .AddJsonFile("config/appsettings.Development.json")
-        .Build();
-
 #if DEBUG
-        string ConnectionString = configBuilder["Database:ConnectionStringTesting"]!;
+        return Environment.GetEnvironmentVariable("BasicApp_Database_ConnectionStringDevelopment")!;
 #else
-        string ConnectionString  = configBuilder["Database:ConnectionStringProduction"]!;
+        return Environment.GetEnvironmentVariable("BasicApp_Database_ConnectionStringProduction")!;
 #endif
-        return ConnectionString;
     }
 
     protected override void OnModelCreating(DbModelBuilder modelBuilder)
