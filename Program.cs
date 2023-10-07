@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.ApplicationModels;
 // should remove this, and switch to et 6
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.Hosting.StaticWebAssets;
 using Areas.Identity;
 
 using MudBlazor;
