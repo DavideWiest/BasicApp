@@ -100,3 +100,10 @@
 2023-08-30 20:43:25.163 +02:00 [INF] Request Ip=::1 Url=/_content/MudBlazor/MudBlazor.min.js Time=000.155
 2023-08-30 20:43:25.296 +02:00 [INF] Request Ip=::1 Url=/_blazor/initializers Time=001.003
 2023-08-30 20:43:25.316 +02:00 [INF] Request Ip=::1 Url=/_blazor/negotiate Time=000.136
+2023-08-30 20:52:05.267 +02:00 [INF] Request Ip=::1 Url=/ Time=250.360
+2023-08-30 20:52:05.291 +02:00 [INF] Request Ip=::1 Url=/_content/MudBlazor/MudBlazor.min.css Time=004.383
+2023-08-30 20:52:05.294 +02:00 [INF] Request Ip=::1 Url=/_blazor/disconnect Time=018.382
+2023-08-30 20:52:05.300 +02:00 [INF] Request Ip=::1 Url=/_framework/blazor.server.js Time=002.310
+2023-08-30 20:52:05.338 +02:00 [INF] Request Ip=::1 Url=/_content/MudBlazor/MudBlazor.min.js Time=000.342
+2023-08-30 20:52:05.475 +02:00 [INF] Request Ip=::1 Url=/_blazor/initializers Time=005.290
+2023-08-30 20:52:05.498 +02:00 [INF] Request Ip=::1 Url=/_blazor/negotiate Time=006.236
