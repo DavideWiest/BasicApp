@@ -1,4 +1,4 @@
-﻿namespace basicApp.Modules.Logging;
+﻿namespace BasicApp.Modules.Logging;
 
 using Serilog.Core;
 using Serilog.Events;
@@ -18,8 +18,4 @@ public class LoggingOptionEnricher : ILogEventEnricher
         var NotifyUserProperty = new LogEventProperty("NotifyUser", new ScalarValue(_NotifyUser));
         logEvent.AddPropertyIfAbsent(NotifyUserProperty);
     }
-}
-
-public class Logging
-{
 }

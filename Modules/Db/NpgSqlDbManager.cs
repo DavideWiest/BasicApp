@@ -1,6 +1,6 @@
 ﻿using Npgsql;
 
-namespace basicApp.Modules.Db;
+namespace BasicApp.Modules.Db;
 
 public static class NpgSqlDbManager
 {

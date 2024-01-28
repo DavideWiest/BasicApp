@@ -1,9 +1,9 @@
-﻿namespace basicApp.Modules.Middleware;
+﻿namespace BasicApp.Modules.Middleware;
 
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
-using basicApp.Modules.Logging;
+using BasicApp.Modules.Logging;
 
 public class LoggingMiddleware : IMiddleware
 {
@@ -18,7 +18,12 @@ public class LoggingMiddleware : IMiddleware
         var requestUrl = context.Request.Path;
         var requesterIp = context.Connection.RemoteIpAddress;
         var timeTaken = stopwatch.Elapsed.TotalMilliseconds;
-
-        Log.Data("Request Ip={Ip} Url={Url} Time={Time:000.000}", requesterIp.ToString() ?? "::::", requestUrl, timeTaken);
+        if (requesterIp != null)
+        {
+            Log.Data("Request Ip={Ip} Url={Url} Time={Time:000.000}", requesterIp, requestUrl, timeTaken);
+        } else
+        {
+            Log.Data("Request Ip=:::: Url={Url} Time={Time:000.000}", requestUrl, timeTaken);
+        }
     }
 }

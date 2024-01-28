@@ -7,32 +7,23 @@ using Microsoft.AspNetCore.Mvc.ApplicationModels;
 // should remove this, and switch to et 6
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.Hosting.StaticWebAssets;
 using Areas.Identity;
 
 using MudBlazor;
 using MudBlazor.Services;
 
-using basicApp.Modules.Logging;
-using basicApp.Modules.Middleware;
-using basicApp.Modules.Db;
-using basicApp.Data;
-using basicApp.Data.Storage;
+using BasicApp.Modules.Logging;
+using BasicApp.Modules.Middleware;
+using BasicApp.Modules.Db;
+using BasicApp.Data;
+using BasicApp.Data.Storage;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("config/appsettings.json");
 builder.Configuration.AddJsonFile("config/appsettings.Development.json");
 
 // LOGGER
-
-
-// USER
-
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
-
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
 
 
 
@@ -62,17 +53,20 @@ builder.Services.AddControllersWithViews(options =>
 
 // CONSTR
 
-#if DEBUG
-string ConnectionString = builder.Configuration["Database:ConnectionStringTesting"]!;
-#else
-string ConnectionString  = builder.Configuration["Database:ConnectionStringProduction"]!;
-#endif
+//#if DEBUG
+//string ConnectionString = builder.Configuration["Database:ConnectionStringTesting"]!;
+//#else
+//string ConnectionString  = builder.Configuration["Database:ConnectionStringProduction"]!;
+//#endif
+
 
 // DB TESTING 
 
 #if DEBUG
-string TestingTable = "Item1Table";
-var con = new TestDbContext(ConnectionString);
+string TestingTable = "TestUser";
+var con = new TestDbContext();
+Log.Information("Test info channel");
+
 Log.Debug($"Existing Tables: {string.Join(", ", DbHelper.GetExistingTables(con))}");
 Log.Debug($"Table {TestingTable} exists: {DbHelper.CheckTableExists(con, TestingTable)}");
 Log.Debug($"Number of entries in {TestingTable} {DbHelper.CheckNumberEntries(con, TestingTable)}");
@@ -87,9 +81,15 @@ builder.Services.AddScoped<LoggingMiddleware>();
 
 builder.Services.AddScoped(provider =>
 {
-    return new TestDbManager(new TestDbContext(ConnectionString));
+    return new UserManager(new TestDbContext());
+});
+builder.Services.AddScoped(provider =>
+{
+    return new NotificationManager(new TestDbContext());
 });
 
+// prevents 404 when switching environments - see https://github.com/MudBlazor/Templates/commit/62e13c61058b419b8957f7d19f38c69a70ef50e6
+StaticWebAssetsLoader.UseStaticWebAssets(builder.Environment, builder.Configuration);
 
 var app = builder.Build();
 

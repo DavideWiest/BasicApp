@@ -1,4 +1,4 @@
-﻿namespace basicApp.Modules.Logging;
+﻿namespace BasicApp.Modules.Logging;
 
 using Serilog;
 using Serilog.Events;
@@ -6,22 +6,25 @@ using Serilog.Events;
 public static class Log
 {
     private static readonly ILogger SLogger = new LoggerConfiguration()
+    #if DEBUG
+    .MinimumLevel.Debug()
+    #endif
     .Enrich.With(new LoggingOptionEnricher())
     .WriteTo.Logger(lc => lc
         .Filter.ByIncludingOnly(evt => evt.Level == LogEventLevel.Warning || evt.Level == LogEventLevel.Error || evt.Level == LogEventLevel.Fatal)
-        .WriteTo.File("Logs/priority.txt", rollingInterval: RollingInterval.Day)
+        .WriteTo.File("Logs/priority_.txt", rollingInterval: RollingInterval.Day)
     )
     .WriteTo.Logger(lc => lc
         .Filter.ByIncludingOnly(evt => evt.Level == LogEventLevel.Error || evt.Level == LogEventLevel.Fatal)
-        .WriteTo.File("Logs/error.txt", rollingInterval: RollingInterval.Day)
+        .WriteTo.File("Logs/error_.txt", rollingInterval: RollingInterval.Day)
     )
     .WriteTo.Logger(lc => lc
         .Filter.ByIncludingOnly(evt => evt.Properties.ContainsKey("Channel") && evt.Properties["Channel"].ToString() == "Data")
-        .WriteTo.File("Logs/data.txt", rollingInterval: RollingInterval.Day)
+        .WriteTo.File("Logs/data_.txt", rollingInterval: RollingInterval.Day)
     )
-    .WriteTo.Console()
-    .WriteTo.File("Logs/log.txt", rollingInterval: RollingInterval.Day)
     .WriteTo.Sink(new LoggingEventHandler())
+    .WriteTo.Console()
+    .WriteTo.File("Logs/log_.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 

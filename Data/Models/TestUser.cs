@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Azure.Core;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace basicApp.Data.Db;
+namespace BasicApp.Data.Models;
 
-public class Item1Table
+public class TestUser
 {
     [Key]
     public int Id { get; set; }
@@ -17,4 +18,6 @@ public class Item1Table
     [Required]
     [Column("age")]
     public short? Age { get; set; }
+
+    public ICollection<UserNotification>? Notifications { get; set; }
 }
